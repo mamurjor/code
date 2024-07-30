@@ -1,10 +1,45 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebsiteController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\DashboarController;
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/',[WebsiteController::class,'GetMyallWebsiteData'])->name('mywebsite');
+
+
+Route::get('/mydashboard',[DashboarController::class,'mydashboard'])->name('mydashboard');
+
+
+Route::post('registration/save', function () {
+
+    return "this is post";
+
+})->name('savehadi');
+
+Route::delete('users/{id}', function ($id) {
+  echo "this is delete method".$id;
+})->name('userudpate');
+
+
+
+Route::get('user/{id}',function($id){
+
+    return "test".$id;
+
+})->where('id','[0-9]+');
+
+
+Route::get('mamurjor/{name?}',function($name=""){
+
+    return "mamurjor".$name;
+
+})->where('id','[A-Za-z]+')->name('getuser');
 
 
 Route::get('/contact', function () {
@@ -69,6 +104,10 @@ Route::get('/about', function () {
 
 Route::get('/blog', function () {
     return view('blog');
+});
+
+Route::get('/service', function () {
+    return view('service');
 });
 
 /*

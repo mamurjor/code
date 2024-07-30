@@ -7,7 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-{{ $personinfos['bestname']['bName'] }}
-{{ $personinfos['bestname']['madrasha_name'] }}
+
+
+<form action="{{ url('users') }}/2" method="post">
+    @csrf
+    @method('delete')
+    <label for="username">Username</label>
+    <input type="text" name="" class="form-control" id="">
+    <label for="username">Password</label>
+    <input type="text" name="" class="form-control" id="">
+    <button type="submit">Save </button>
+
+</form>
 </body>
 </html>

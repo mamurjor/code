@@ -1,7 +1,18 @@
-@include('header')
-<body>
+@extends('layouts.app')
 
-    @include('homepage.arekta.test.maincontent')
+@section('title','this is about page ');
 
-</body>
-</html>
+
+@section('maincontent')
+
+{{ now() }}
+
+@selfdateformate(now());
+
+
+@php
+    $product_des=" all product is very bad . ";
+@endphp
+
+@allupper($product_des);
+@endsection
